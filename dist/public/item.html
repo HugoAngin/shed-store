@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/label.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add,check_circle,delete,do_not_disturb_on,edit,home,inventory_2,library_books,login,logout,map,menu,open_in_new,save" />
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="item.css">
+    <title>Item</title>
+</head>
+<body class="Item">
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <span class="sidebar-button material-symbols-outlined">menu</span>
+        <div class="sidebar-header">
+            <h1>Shed Storage</h1>
+        </div>
+        <div class="bar-left">
+            <h2 class="title">Item</h2>
+        </div>
+    </div>
+    <div class="sidebar">
+        <div class="sidebar-nav">
+            <a class="nav-item" href="/index.html">
+                <span class="material-symbols-outlined nav-icon">home</span>
+                <span class="nav-text">Home</span>
+            </a>
+            <a class="nav-item active" href="/catalogue.html">
+                <span class="material-symbols-outlined nav-icon">inventory_2</span>
+                <span class="nav-text">Catalogue</span>
+            </a>
+            <a class="nav-item"  href="/admin-dashboard.html">
+                <span class="material-symbols-outlined nav-icon">edit</span>
+                <span class="nav-text">Edit</span>
+            </a>
+            <a class="nav-item" href="/map-view.html">
+                <span class="material-symbols-outlined nav-icon">map</span>
+                <span class="nav-text">Map Viewer</span>
+            </a>
+            <a class="nav-item" href="/logs.html">
+                <span class="material-symbols-outlined nav-icon">library_books</span>
+                <span class="nav-text">Logs</span>
+            </a>
+        </div>
+        <div class="sidebar-footer">
+        </div>
+    </div>
+    <div id="loadingOverlay" class="hidden">
+        <div class="spinner"></div>
+    </div>
+    <div class="container">
+        <div class="card">            
+            <div class="header">
+            <h1 class="name">Product Name</h1>
+            <div class="id">ID: 123456</div>
+            </div>
+    
+            <div class="info-grid">
+            <div class="info-box">
+                <h3>Location</h3>
+                <p class="location">Location goes here</p>
+            </div>
+            <div class="info-box">
+                <h3>Status</h3>
+                <div class="status-box">
+                    <div class="status-text-container">
+                        <span class="status-symbol material-symbols-outlined filled">check_circle</span>
+                        <p class="status">Status goes here</p>
+                    </div>
+                    <button class="check-inout-button">Check In</button>
+                </div>
+            </div>
+            </div>
+    
+            <div class="map-box">
+                <iframe src="map.html?location=A1" frameborder="0" width="1260" height="600" class="map"></iframe>
+            </div>
+    
+            <div class="tags-box">
+            <h3>Tags</h3>
+            <div class="tags">None</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script defer src="bundle.js"></script>
+</html>

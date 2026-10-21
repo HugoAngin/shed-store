@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <link rel="shortcut icon" href="images/lock-emoji.png" type="image/x-icon">
+    <title>Document</title>
+</head>
+<body class="Login">
+    <img src="images/lock-emoji.png" width="80px" alt="">
+    <h2>Admin Login Page</h2>
+    <form action="/login" method="POST">
+        <input type="hidden" name="redirect" id="redirect-field">
+        <label for="email-field">Username:</label>
+        <input type="email" name="email" placeholder="Email" id="email-field" required><br>
+        <label for="password-field">Password:</label>
+        <input type="password" name="password" placeholder="Password" id="password-field" required><br>
+        <button type="submit">Log In</button>
+    </form>
+</body>
+<script defer src="bundle.js"></script>
+</html>

@@ -1,0 +1,33 @@
+{
+  "name": "shed-storage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Inventory system for a school theatre props and sets shed",
+  "main": "server.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "node --env-file=.env server.js",
+    "hash-password": "node scripts/hash-password.js"
+  },
+  "engines": {
+    "node": ">=20.6"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.7.1",
+    "express-session": "^1.18.2",
+    "firebase": "^12.19.0",
+    "firebase-admin": "^13.10.0",
+    "helmet": "^8.3.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.102.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "overrides": {
+    "@grpc/grpc-js": "^1.14.6",
+    "uuid": "^11.1.1"
+  }
+}

@@ -1,0 +1,245 @@
+/* ===== Sidebar ===== */
+.sidebar {
+    width: 250px;
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100%;
+    border-right: 1px solid var(--border-default);
+    transition: all 0.3s ease;
+    z-index: 60;
+}
+
+/* Header */
+.sidebar-header {
+    text-align: center;
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+    z-index: 101;
+}
+
+.sidebar-header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 0;
+}
+
+/* Navigation */
+.sidebar-nav {
+    flex: 1;
+    padding: 12px 0;
+    padding-top:60px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text-primary);
+    border-left: 4px solid transparent;
+    transition: background-color 0.2s ease;
+}
+
+.nav-item:hover {
+    background-color: var(--bg-hover);
+}
+
+.nav-item.active {
+    background-color: rgba(42, 123, 155, 0.12); /* brand-primary @ low opacity */
+    border-left: 4px solid var(--brand-primary);
+    font-weight: 500;
+}
+
+/* Icons & text */
+.nav-icon {
+    margin-right: 14px;
+    font-size: 24px !important;
+    color: var(--text-secondary);
+}
+
+.nav-item.active .nav-icon {
+    color: var(--brand-primary);
+}
+
+.nav-text {
+    font-size: 0.95rem;
+}
+
+/* Footer */
+.sidebar-footer {
+    padding: 16px;
+    border-top: 1px solid var(--border-default);
+}
+
+/* Buttons */
+.logoff-btn,
+.login-btn {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    border: none;
+    text-decoration: none;
+}
+
+.logoff-btn {
+    background-color: var(--danger);
+    color: #ffffff;
+}
+
+.logoff-btn:hover {
+    background-color: var(--danger);
+    opacity: 0.9;
+}
+
+.login-btn {
+    background-color: var(--accent);
+    color: #ffffff;
+}
+
+.login-btn:hover {
+    background-color: var(--accent-hover);
+}
+
+/* Icons spacing */
+.logoff-icon,
+.login-icon {
+    margin-right: 12px;
+}
+
+
+/* Forceopen Styles */
+.sidebar.force-open{
+    display: flex;
+    width: 250px;   
+}
+
+.force-open .top-center{
+    display:none;
+}
+
+.force-open .title{
+    display:none;
+}
+
+.force-open .sidebar-header{
+    display:flex;
+    z-index: 101;
+}
+
+.top-bar.force-open .nav-text{
+    display:block;
+}
+
+.force-open .nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 12px 20px;
+    width:initial;
+}
+
+.force-open .nav-text{
+    display: block;
+}
+
+.force-open .nav-item .nav-icon{
+    margin-right:14px;
+}
+
+.force-open .login-icon, .force-open .logoff-icon{
+    margin-right:12px;
+}
+
+.force-open .sidebar-footer{
+    display:flex;
+    flex-direction: column;
+}
+
+.force-open .login-btn, .force-open .logoff-btn{
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    /* width: 250px; */
+}
+
+/* Hide delete in catalogue */
+.Catalogue .delete-btn {
+    display: none;
+}
+
+.sidebar .material-symbols-outlined{
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.sidebar-button{
+    cursor: pointer;
+}
+
+
+@media (max-width: 950px) {
+
+    .sidebar-header{
+        display:none;
+    }
+    
+    .sidebar {
+        width: 60px;
+    }
+
+    .nav-text{
+        display:none;
+    }
+
+    .nav-item{
+        width:47px;
+        padding: 12px 5px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-icon{
+        margin-right: 0;
+    }
+
+
+    .logoff-btn,
+    .login-btn {
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        cursor: pointer;
+        border-radius: 6px;
+        font-size: 10px !important;
+        border: none;
+        text-decoration: none;
+    }
+    .logoff-icon,
+    .login-icon {
+        margin-right: 0;
+    }
+    .sidebar-footer {
+        padding: 10px;
+        display:flex;
+        justify-content: center;
+    }
+
+
+}
+
+@media (max-width: 750px) {
+    .sidebar{
+        display: none;
+    }
+}

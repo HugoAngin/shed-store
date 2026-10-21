@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/memo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add,arrow_downward,arrow_upward,chevron_left,chevron_right,delete,edit,home,inventory_2,library_books,login,logout,map,menu,open_in_new,remove,save,search,sort" />
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <title>St. Mary's International School Shed</title>
+</head>
+<body class="MainPage">
+    <!-- Loading Screen -->
+    <div id="loadingOverlay" class="hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <span class="sidebar-button material-symbols-outlined">menu</span>
+        <div class="sidebar-header">
+            <h1>Shed Storage</h1>
+        </div>
+        <div class="bar-left">
+            <h2 class="title">Edit Inventory</h2>
+        </div>
+         <div class="top-center">
+            <span class="material-symbols-outlined search-symbol">search</span>
+            <input type="text" id="search-bar" class="search-input" placeholder="Search items, locations, and tags…">
+        </div>
+    </div>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <div class="sidebar-nav">
+            <a class="nav-item" href="/index.html">
+                <span class="material-symbols-outlined nav-icon">home</span>
+                <span class="nav-text">Home</span>
+            </a>
+            <a class="nav-item" href="/catalogue.html">
+                <span class="material-symbols-outlined nav-icon">inventory_2</span>
+                <span class="nav-text">Catalogue</span>
+            </a>
+            <a class="nav-item active" href="admin-dashboard.html">
+                <span class="material-symbols-outlined nav-icon">edit</span>
+                <span class="nav-text">Edit</span>
+            </a>
+            <a class="nav-item" href="/map-view.html">
+                <span class="material-symbols-outlined nav-icon">map</span>
+                <span class="nav-text">Map Viewer</span>
+            </a>
+            <a class="nav-item" href="/logs.html">
+                <span class="material-symbols-outlined nav-icon">library_books</span>
+                <span class="nav-text">Logs</span>
+            </a>
+        </div>
+        <div class="sidebar-footer">
+            <a class="logoff-btn" href="/logout">
+                <span class="material-symbols-outlined logoff-icon">logout</span>
+                <span class="nav-text">Logoff</span>
+            </a>
+        </div>
+    </div>
+    <!-- Website Content -->
+    <div class="content">
+        <!-- Inventory Table -->
+        <div class="inventory-container">
+            <div class="inventory-list">
+                <div class="item header">
+                    <div class="item-name">Item Name</div>
+                    <div class="item-location">Location (ID)</div>
+                    <div class="item-tags">Tags</div>
+                    <div class="item-status">Status</div>
+                    <div class="view"> </div>
+                </div>
+                <!-- <div class="item-wrapper">
+                    <div class="item-name">Test</div>
+                    <div class="item-location">Test</div>
+                    <div class="item-tags">Test</div>
+                    <div class="item-status">test</div>
+                    <div class="view">Test</div>
+                </div> -->
+                <div class="item add-item" id="addItemRow">
+                    <div class="add-button">
+                        <div class="material-symbols-outlined add-symbol">add</div>
+                        <div class="add-text">New Item</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script defer src="bundle.js"></script>
+</body>
+</html>

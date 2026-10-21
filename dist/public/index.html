@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" 
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add,delete,edit,home,inventory_2,login,logout,map,open_in_new,save,search" 
+    />
+    <link rel="stylesheet" href="theme.css">
+    <!-- <link rel="stylesheet" href="admin-dashboard.css"> -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <title>Welcome!</title>
+</head>
+<body class="Home">
+    <div class="content">
+        <div class="title">
+            <h3>Welcome to</h3>
+            <h3 class="special">Shed Storage</h3>
+            <p class="lead">All your sets and props, finally in one place. </p>
+        </div>
+        <div class="landing-buttons">
+            <a href="/catalogue.html" class="catalogue-button landing-button">See the Catalogue</a>
+            <a href="/map-view.html" class="map-button landing-button">View the Map </a>
+        </div>
+        <div class="stats-container">
+            <div class="stat-card">
+                <span class="material-symbols-outlined stat-icon">
+                    inventory_2
+                </span>
+                <div class="stat-info">
+                    <p class="stat-number" id="total-props">0</p>
+                    <p class="stat-label">Total Props in Shed</p>
+                </div>
+            </div>
+
+            <div class="stat-card checked-out">
+                <span class="material-symbols-outlined stat-icon">
+                    open_in_new
+                </span>
+                <div class="stat-info">
+                    <p class="stat-number" id="checked-out-props">0</p>
+                    <p class="stat-label">Checked Out</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script defer src="bundle.js"></script>
+</html>

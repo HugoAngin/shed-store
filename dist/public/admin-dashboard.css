@@ -1,0 +1,755 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-main);
+}
+
+.content {
+    padding-top: 80px;
+    padding-left:260px;
+    display: flex;
+    align-items: center;
+    flex-direction:column;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.inventory-container{
+    border: 2px solid #000;
+    width:90%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    background: #fff;
+    border-radius: 6px;
+    overflow: visible;
+}
+
+.inventory-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 600px;
+}
+
+
+.item-wrapper {
+    position: relative;
+    background-color: var(--bg-main);
+}
+
+.item-status {
+    flex: 0.7 !important;
+    min-width: 115px;
+}
+
+.item-location {
+    flex: 0.5 !important;
+    min-width:100px;
+}
+
+@media (pointer:none), (pointer:coarse) {
+    .delete-btn{
+        opacity: 1 !important;
+    }
+}
+.delete-btn {
+    transition: background ease 0.2s, opacity ease 0.2s;
+    position: absolute;
+    left: -40px; /* adjust to change offset */
+    top: 50%;
+    z-index: 1000;
+    transform: translateY(-50%);
+    display: block;
+    background: #fff;
+    border: 1px solid #900;
+    color: #900;
+    border-radius: 4px;
+    padding: 4px;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.delete-btn:hover {
+    background: #fdd;
+}
+
+/* Show delete buttons in edit mode */
+
+/* Item Row */
+.item {
+    display: flex;
+    border-bottom: 1px solid #000;
+    align-items: stretch;
+    min-height:20px;
+}
+
+.item-wrapper:hover .delete-btn {
+    opacity: 1;
+}
+
+/* Header Row */
+.header {
+    font-weight: bold;
+    background: var(--bg-hover);
+    border-bottom: 2px solid #000;
+    color: #000;
+    border-radius: 5px 5px 0 0;
+}
+
+.item-header > div > div , .item-wrapper > div > div{
+    display: flex;
+    align-items: center;
+}
+
+/* Each Column */
+.item > div {
+    flex: 1;
+    padding: 10px;
+    border-right: 1px solid #000;
+    display: flex;
+    align-items: center;
+}
+
+.item > div > p{
+    margin:0;
+}
+
+.item > div:not(.material-symbols-outlined), .item > span:not(.tag){
+    font-size: 15px;
+}
+
+.item-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 125px;
+    overflow-wrap: break-word;  
+}
+
+
+.item-tags{
+    min-width: none;
+}
+
+.sort-btn {
+    padding: 0;
+}
+
+.sort-icon {
+    font-size: 20px !important;
+}
+
+.add-button {
+    flex: 1;
+    display: flex;
+    align-items: center;     
+    justify-content: center;
+    gap: 6px;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+    color:#3498DC;
+    transition: background 0.2s ease;
+    border-radius: 0 0 5px 5px;
+}
+
+.add-button:hover{
+    background: var(--bg-hover);
+}
+
+.add-button .material-symbols-outlined {
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.item > .view, .item > .add {
+    flex: 0.3;
+    text-align: center;
+    position: relative; /* allow pseudo-element positioning */
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Hover circle effect */
+.item > .view.material-symbols-outlined::after, .item > .add.material-symbols-outlined::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 36px;
+    height: 36px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.15); /* half opacity */
+    border-radius: 50%;
+    opacity: 0; /* invisible by default */
+    transition: opacity 0.25s ease;
+    pointer-events: none; /* so the hover still works normally */
+}
+
+/* Show a small text to explain  */
+.item > .view.material-symbols-outlined::before, .item > .add.material-symbols-outlined::before{
+    content: "Open item page";
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+    position: absolute;
+    bottom: -20px;
+    transform: translateY(+50%);
+    left:50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 10;
+}
+.item > .add.material-symbols-outlined::before{
+    content: "Add item";
+}
+
+.item > .add{
+    margin: auto;
+}
+
+.empty-search-warning {
+    text-align: center;
+}
+
+
+/* Show the circle and text on hover */
+.item > .view.material-symbols-outlined:hover::after,
+.item > .view.material-symbols-outlined:hover::before, 
+.item > .add.material-symbols-outlined:hover::after,
+.item > .add.material-symbols-outlined:hover::before{
+    opacity: 1;
+}
+
+/* Remove borders from last column and rows */
+.item > div:last-child {
+    border-right: none;
+}
+
+.inventory-list > div:last-child > .item, .inventory-list > div:last-child{
+    border-bottom: none;
+    border-radius: 0 0 6px 6px;
+}
+
+/* Pagination Control Styles */
+#pagination-controls{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pagination-controls a{
+    text-decoration: none;
+    color:black;
+}
+
+/* Tags */
+.item-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: center;
+    flex: 1.5 !important;
+}
+
+/* Form */
+
+.new-item > .item-tags{
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px;
+}
+
+.new-item > div{
+    height: 223px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    min-height: 19px;
+}
+.item input[type="text"],
+.item select {
+    appearance: none;
+    width: 100%;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fafafa;
+    font-size: 0.95rem;
+    transition: border 0.25s, background 0.25s;
+    box-sizing: border-box;
+}
+
+.item select{
+    background: url("https://cdn-icons-png.flaticon.com/256/5800/5800621.png") white no-repeat 96% !important;
+    background-size: 10px 8px !important;
+}
+
+.item input[type="text"]:focus,
+.item select:focus {
+    border-color: #4a90e2;
+    background: #fff;
+    outline: none;
+}
+
+/* Tag input field */
+.tag-input {
+    min-width: 80px;
+    flex: 1;
+    padding: 7px 10px;
+    border-radius: 6px;
+    font-size: 0.8em !important; 
+}
+
+.custom-tag-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Add Custom Tag button */
+.add-tag-btn {
+    background: #4a90e2;
+    border: none;
+    color: white;
+    padding: 4px 10px;
+    margin-left: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s ease;
+}
+
+.add-tag-btn:hover {
+    background: #3774b8;
+}
+/* Circle button next to tag input */
+.tag-color-picker {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid #444;
+    cursor: pointer;
+    margin-left: 6px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.tag-color-picker.tag {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid #444;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Color palette popup */
+.tag-color-popup {
+    position: absolute;
+    top: 24px;
+    left: 0;
+    background: #fff;
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 6px;
+    display: flex;
+    gap: 6px;
+    z-index: 10;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+/* Custom popup when hovered */
+
+.tag-preview{
+    position: relative;
+    cursor: pointer;
+}
+
+.tag-preview::after{
+    content: "Click to remove";
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+    position: absolute;
+    bottom: -30px;
+    left:50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 10;
+}
+
+.tag-preview:hover::after{
+    opacity: 1;
+}
+
+/* Individual color choices */
+.tag-color-option {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.4);
+}
+
+.small-label{
+    border-top: 1px solid #aaa;
+    margin-top: 8px;
+    padding-top: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #444;
+    width:100%;
+}
+
+.quick-tag-buttons {
+    display: flex;
+    gap: 6px;
+    margin-top: 2px;
+}
+
+.quick-tag-btn {
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+    transition: transform 0.15s ease;
+}
+.quick-tag-btn:hover {
+    transform: scale(1.06);
+}
+
+.quick-borrowed {
+    background: #B9D8B4; /* same green tag style */
+    color: #1F5A1A;
+}
+
+.quick-dispose {
+    background: #F2B8B5; /* same red tag style */
+    color: #7A1F20;
+}
+
+.tag {
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+}
+
+.tag.tag-grey {
+    background: #E5E5E5;
+    color: #333;
+}
+
+.tag.tag-red {
+    background: #F2B8B5;
+    color: #7A1F20;
+}
+
+.tag.tag-orange {
+    background: #F4C29A;
+    color: #7A3D00;
+}
+
+.tag.tag-yellow {
+    background: #F7E8A4;
+    color: #6A5A00;
+}
+
+.tag.tag-green {
+    background: #B9D8B4;
+    color: #1F5A1A;
+}
+
+.tag.tag-blue {
+    background: #B8D1EA;
+    color: #1C3F6E;
+}
+
+.tag.tag-purple {
+    background: #D3C2E8;
+    color: #4A3066;
+}
+
+
+.material-symbols-outlined {
+    cursor: pointer;
+    vertical-align: middle;
+    font-size: 24px;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+.item.new-item input[type="text"]:not(.tag-input),
+.item.new-item select {
+    margin: auto 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#loadingOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 99999;
+}
+
+#loadingOverlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Spinner */
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #ffffff50;
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+    }
+
+@keyframes spin {
+to {
+    transform: rotate(360deg);
+}
+}
+
+.delete-confirmation {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    z-index: 99998;
+}
+
+.delete-confirmation-box{
+    background: white;
+    width: 400px;
+    height: 175px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgb(224, 224, 224);
+}
+
+.delete-confirmation-box > h3{
+    font-size: 24px;
+    margin: 20px 20px 0px 20px;
+}
+
+.delete-confirmation-box > p {
+    margin: 10px 20px 10px 20px;
+}
+
+.confirmation-container{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.cancel, .confirm{
+    width: 175px;
+    height: 40px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.cancel {
+    border: 1px solid rgb(224, 224, 224);
+}
+
+.cancel:hover{
+    background-color: rgb(224, 224, 224);
+}
+
+.confirm {
+    background-color: #f42c2c;
+    color:white;
+    font-weight: 400;
+}
+
+.confirm:hover{
+    background-color: #d42727;
+}
+
+.delete-confirmation.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.top-bar {
+    position:fixed;
+    display: flex;
+    width: 100vw;
+    height: 60px;
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border-default);
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 20px;
+    z-index: 100;
+    padding-left:22px;
+}
+
+.top-bar .title {
+    margin: 0;
+    font-size: 24px;
+    margin-left:20px;
+}
+
+.top-center {
+    position: fixed;
+    left: 40%;
+}
+
+.search-input {
+    padding: 10px 14px 10px 40px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: 0.2s;
+    width: 400px;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #888;
+    background: #fff;
+}
+
+.search-symbol{
+    color: #757575;
+    position: relative;
+    top: 50%;
+    left: 40px;
+}
+
+@media (max-width: 1000px){
+    .search-input{
+        width: 300px;
+    }
+    .top-center{
+        left: 50%;
+    }
+
+}
+
+@media (max-width: 950px){
+    .content{
+        padding-left: 70px;
+    }
+
+    .top-center{
+        left: 40%;
+    }
+
+    .top-bar .title {
+        font-size: 20px;
+    }
+    .item {
+        min-width: 600px;
+    }
+
+}
+
+@media (max-width: 750px) {
+    .content{
+        padding-left:10px;
+    }
+
+    .inventory-container{
+        overflow-y: hidden;
+        overflow-x: auto;
+    }
+
+    .inventory-list{
+        position:relative;
+        padding-left:45px;
+    }
+    .item{
+        border-left: 1px solid #000;
+    }
+    .item > .view.material-symbols-outlined::before, .item > .add.material-symbols-outlined::before{
+        content: "Open";
+    }
+    
+    
+}
+@media (max-width: 660px) {
+
+    .search-input{
+        width:300px;
+    }
+
+    .search-symbol{
+        transform:translateY(20%);
+        left:35px;
+    }
+    
+    .top-center{
+        left:10px;
+        width:100%;
+        display:flex;
+        justify-content: center;
+    }
+    .sidebar-button{
+        z-index: 100;
+    }
+    .title{
+        display:none;
+    }
+    
+}
+@media (max-width: 450px) {
+    .search-symbol{
+        display:none;
+    }
+    .search-input{
+        padding-left: 5px;
+        width:200px;
+    }
+}

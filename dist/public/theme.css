@@ -1,0 +1,43 @@
+:root {
+    /* ===== Brand ===== */
+    --brand-gradient: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(49, 145, 145, 1) 50%, rgba(87, 199, 150, 1) 100%);
+    --brand-gradient-1:rgba(42, 123, 155, 1);
+    --brand-gradient-2:rgba(49, 145, 145, 1);
+    --brand-gradient-3:rgba(87, 199, 150, 1);
+
+    --brand-primary: #2a7b9b;
+    --brand-secondary: #57c796;
+    --brand-tertiary: rgb(75, 171, 130);
+
+    /* ===== Backgrounds ===== */
+    --bg-main: #ffffff;
+    --bg-surface: #f7f8fa;
+    --bg-hover: #d9dcde;
+
+    /* ===== Text ===== */
+    --text-primary: #000000;
+    --text-secondary: #555555;
+    --text-muted: #7F899E;
+
+    /* ===== Borders ===== */
+    --border-default: #e5e7eb;
+
+    /* ===== UI Accents ===== */
+    --accent: #2a7b9b;
+    --accent-hover: #245f78;
+
+    /* ===== Status ===== */
+    --success: #2e7d32;
+    --warning: #f9a825;
+    --danger: #c62828;
+    --info: #1565c0;
+
+}
+
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.material-symbols-outlined{
+    font-display: block;
+}

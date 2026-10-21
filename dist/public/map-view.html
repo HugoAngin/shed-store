@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Storage Area Map</title>
+  <link rel="shortcut icon" href="images/map.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add,delete,edit,home,inventory_2,library_books,login,logout,map,menu,open_in_new,remove,save,search" />
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="map-view.css">
+  <link rel="stylesheet" href="sidebar.css">
+
+</head>
+<body class="MapView">
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <div class="sidebar-nav">
+      <a class="nav-item" href="/index.html">
+        <span class="material-symbols-outlined nav-icon">home</span>
+        <span class="nav-text">Home</span>
+      </a>
+      <a class="nav-item" href="/catalogue.html">
+        <span class="material-symbols-outlined nav-icon">inventory_2</span>
+        <span class="nav-text">Catalogue</span>
+      </a>
+      <a class="nav-item" href="/admin-dashboard.html">
+        <span class="material-symbols-outlined nav-icon">edit</span>
+        <span class="nav-text">Edit</span>
+      </a>
+      <a class="nav-item active" href="/map-view.html">
+        <span class="material-symbols-outlined nav-icon">map</span>
+        <span class="nav-text">Map Viewer</span>
+      </a>
+      <a class="nav-item" href="/logs.html">
+        <span class="material-symbols-outlined nav-icon">library_books</span>
+        <span class="nav-text">Logs</span>
+      </a>
+    </div>
+    <div class="sidebar-footer">
+    </div>
+  </div>
+  <!-- Top Bar -->
+  <div class="top-bar">
+     <span class="sidebar-button material-symbols-outlined">menu</span>
+        <div class="sidebar-header">
+          <h1>Shed Storage</h1>
+      </div>
+    <div class="bar-left">
+      <h2 class="title">Shed Map</h2>
+    </div>
+  </div>
+  <!-- Content -->
+  <div class="shelf-tooltip">Click to View Shelf</div>
+  <div class="content">
+    <div class="container">
+      <div class="section">
+        <h2>Top View</h2>
+        <div class="top-view">
+          <div class="main-shelves">
+            <div class="top-rect selected" id="A">A</div>
+            <div class="walkway-top"></div>
+            <div class="top-rect" id="B">B</div>
+            <div class="top-rect" id="C">C</div>
+            <div class="walkway-top"></div>
+            <div class="top-rect" id="D">D</div>
+            <div class="top-rect" id="E">E</div>
+            <div class="walkway-top"></div>
+            <div class="top-rect" id="F">F</div>
+            <div class="top-rect" id="G">G</div>
+            <div class="walkway-top"></div>
+            <div class="top-rect" id="H">H</div>
+          </div>
+          <div class="low-shelves">
+            <div class="top-rect small-bookshelf" id="I">I</div>
+            <div class="alignment1"></div>
+            <div class="top-rect big-bookshelf" id="J">J</div>
+            <div class="alignment2"></div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h2 class="shelf-title">Shelf A</h2>
+        <div class="shelf-view"></div>
+      </div>
+    </div>
+  </div>
+  <script defer src="bundle.js"></script>
+</body>
+</html>

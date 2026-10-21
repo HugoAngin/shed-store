@@ -1,0 +1,18 @@
+node_modules/
+.DS_Store
+
+# Secrets
+.env
+src/firebase-config.js
+service-account*.json
+*-firebase-adminsdk-*.json
+
+# Build output (contains the Firebase config); regenerate with `npm run build`
+dist/public/bundle.js
+dist/public/bundle.js.LICENSE.txt
+dist/bundle.js.LICENSE.txt
+
+# Firebase emulator / CLI
+firebase-debug.log
+firestore-debug.log
+.firebase/

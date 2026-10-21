@@ -1,0 +1,157 @@
+body{
+    margin:20px;
+    background:var(--bg-surface);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    align-items: center;
+}
+
+.vertical{
+    flex-direction: column;
+    gap:0;
+}
+
+.vertical .top-rect {
+    font-size: 30px;
+}
+
+.vertical .slot {
+    font-size:25px;
+}
+
+.vertical h2 {
+    font-size: 35px;
+}
+
+.big-title{
+    font-size:50px;
+}
+
+.vertical h1 {
+    font-size:100px;
+}
+
+h1, h2{
+    text-align:center;
+    margin:10px 0
+}
+
+h1 {
+    font-size: 35px;
+}
+
+.top-view{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 820px;
+    padding: 12px;
+    
+    border: 2px solid #555;
+    
+}
+
+.low-shelves {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    
+}
+
+.alignment1{
+    width: 252px;
+}
+
+.alignment2{
+    width: 300px;
+}
+
+.main-shelves {
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-bottom: 12px;
+    align-items:center;
+}
+
+.walkway-top{
+    width:40px;
+    height:200px;
+    background:#fafafa;
+    border:2px dashed #bbb;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    color:#666;
+    border-radius:6px;
+}
+
+.top-rect{
+    width:60px;
+    height:200px; /* increased height */
+    background: #6D9EEB;
+    border:2px solid #555;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:700;
+    border-radius:6px;
+}
+
+.big-bookshelf {
+    width: 200px;
+    height: 40px;
+}
+
+.small-bookshelf {
+    height: 180px;
+    width: 60px;
+}
+
+
+.shelf-view{
+    width:300px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    /* grid-template-rows:repeat(3,80px); */
+    column-gap: 0;
+    row-gap: 4px;
+    background: #555;
+    padding: 4px;
+}
+
+.large-shelf {
+    grid-template-rows:repeat(3,60px);
+}
+
+.medium-shelf{
+    grid-template-columns:repeat(2,1fr);
+    grid-template-rows:repeat(3,80px);
+}
+
+.small-shelf {
+    grid-template-rows:repeat(2,80px);
+}
+
+.slot{
+    background:#fff;
+    border:1px dashed #aaa;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:600;
+}
+
+.selected{
+    background: #ff3f3f;
+    color: #fff
+}
+

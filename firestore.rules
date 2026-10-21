@@ -1,0 +1,17 @@
+rules_version = '2';
+
+// Browsers may only read the catalogue. Every write goes through server.js,
+// which uses the Firebase Admin SDK (the Admin SDK is not affected by these rules).
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /props-shed/{itemId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Logs contain people's names, so they are only served to logged-in users by server.js
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
